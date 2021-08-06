@@ -24,3 +24,13 @@ From the project root
 ```bash
 docker build -t middlewaregruppen/spring-boot-demo-api .
 ```
+
+## Metrics
+
+Added a `@Timer` metric on the `greeting` method and also a custom `Counter` metric to 
+track the number of times the greeting is called.
+
+Metrics can be looked up via
+
+http://localhost:8080/actuator/prometheus
+
