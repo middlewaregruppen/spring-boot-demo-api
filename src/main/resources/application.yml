@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: greeting
+
+logging:
+  level:
+    root: info
+    org.springframework: info
+  file:
+    name: greeting.log
+    max-size: 10MB
+    max-history: 7
+    path: /var/logs/
+
+# Enable metrics endpoint
+management:
+  metrics:
+    tags:
+      application: greeting
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: "info,health,metrics,prometheus"
+      discovery:
+        enabled: true
+  endpoint:
+    info:
+      enabled: true
+    health:
+      show-details: "always"
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
