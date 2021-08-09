@@ -26,7 +26,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Get Maven app version
-      run: mvn help:evaluate -Dexpression=project.version | grep -e ‘^[^\[]’
+      run: mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]'
       id: appver
 
     - name: Upload Binary linux-amd64
