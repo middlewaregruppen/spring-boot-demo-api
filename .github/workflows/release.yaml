@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - "v*"
+
+jobs:        
+  releases:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build with Maven
+      run: mvn clean package
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        draft: true
+        prerelease: false
+        release_name: ${{ github.ref }}
+        tag_name: ${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Get Maven app version
+      run: |
+        mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]'
+        echo "app_version=$(mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]')" >> $GITHUB_ENV
+
+    - name: Upload Binary linux-amd64
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./target/spring-boot-api-${{ env.app_version }}.jar
+        asset_name: spring-boot-api-${{ env.app_version }}.jar
+        asset_content_type: application/zip
