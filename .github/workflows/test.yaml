@@ -39,4 +39,5 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     
-    - run: mvn --batch-mode --update-snapshots clean package
+    - name: Build Jar
+      run: mvn --batch-mode --update-snapshots clean package
