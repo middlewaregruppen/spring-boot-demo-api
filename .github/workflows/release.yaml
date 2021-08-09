@@ -28,7 +28,6 @@ jobs:
     - name: Get Maven app version
       run: |
         mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]'
-        echo "app_version=$(mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]')"
         echo "app_version=$(mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]')" >> $GITHUB_ENV
 
     - name: Upload Binary linux-amd64
