@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: spring-boot-api
+  name: spring-boot-api
+spec:
+  endpoints:
+  - port: 80-tcp
+    scheme: http
+    path: /actuator/prometheus
+  selector:
+    matchLabels:
+      app: spring-boot-api
