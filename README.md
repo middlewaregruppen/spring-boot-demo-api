@@ -22,8 +22,26 @@ mvn clean package
 From the project root
 
 ```bash
-docker build -t middlewaregruppen/spring-boot-demo-api .
+export DOCKERHUB_USER=yourdockeruser
 ```
+
+```bash
+docker build -t $DOCKERHUB_USER/spring-boot-demo-api .
+```
+
+Push the image to your repo
+
+```bash
+docker push -t $DOCKERHUB_USER/spring-boot-demo-api .
+```
+
+Note: You will need to update this in deployment files also to reference the correct user
+
+- [Deployment/spring-boot-api/base/deployment.yaml](./Deployment/spring-boot-api/base/deployment.yaml)
+- [Deployment/spring-boot-api/overlays/dev/image-template.yaml](./Deployment/spring-boot-api/overlays/dev/image-template.yaml)
+- [Deployment/spring-boot-api/overlays/dev/image.yaml](./Deployment/spring-boot-api/overlays/dev/image.yaml)
+- [Deployment/spring-boot-api/overlays/test/image-template.yaml](Deployment/spring-boot-api/overlays/test/image-template.yaml)
+- [Deployment/spring-boot-api/overlays/test/image.yaml](Deployment/spring-boot-api/overlays/test/image.yaml)
 
 ## Metrics
 
