@@ -43,6 +43,22 @@ Note: You will need to update this in deployment files also to reference the cor
 - [Deployment/spring-boot-api/overlays/test/image-template.yaml](Deployment/spring-boot-api/overlays/test/image-template.yaml)
 - [Deployment/spring-boot-api/overlays/test/image.yaml](Deployment/spring-boot-api/overlays/test/image.yaml)
 
+## Using the demo
+
+This app exposes a simple `/greeting` endpoint under 
+
+```bash
+http://app.domain.com/greeting
+```
+
+and 
+
+```bash
+http://app.domain.com/greeting?name=Charlie
+```
+
+Calls to the endpoint increment a counter that can be monitored using prometheus. 
+
 ## Metrics
 
 Added a `@Timer` metric on the `greeting` method and also a custom `Counter` metric to 
