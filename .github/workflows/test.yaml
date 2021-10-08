@@ -31,14 +31,14 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: preflight
+    needs: pre-flight
     steps:
     - uses: actions/checkout@v2
 
     - name: Checking...
       run: |
-        echo "There are ${{ needs.preflight.outputs.numfiles }} files in the PR"
-        echo ${{ needs.preflight.outputs.pathnames }}
+        echo "There are ${{ needs.pre-flight.outputs.numfiles }} files in the PR"
+        echo ${{ needs.pre-flight.outputs.pathnames }}
 
 
     - name: Set up JDK 11
