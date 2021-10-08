@@ -34,7 +34,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - checking:
+    - name: Checking...
       run: |
         echo "There are ${{ needs.preflight.outputs.numfiles }} files in the PR"
         echo ${{ needs.preflight.outputs.pathnames }}
