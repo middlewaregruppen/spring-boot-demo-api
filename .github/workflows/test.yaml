@@ -24,7 +24,7 @@ jobs:
         echo "Files involved in the change:"
         for f in $FILES
         do 
-          echo $f
+          echo "HELLO: $f"
         done
         echo "::set-output name=paths::$(echo $FILES)"
         echo "::set-output name=numfiles::$(echo ${#FILES[@]})"
