@@ -26,8 +26,8 @@ jobs:
         do 
           echo $f
         done
-        echo "::set-output name=paths::$(echo $FILES)"
-        echo "::set-output name=numfiles::$(echo ${#FILES[@]})"
+        echo "::set-output name=paths::$($FILES)"
+        echo "::set-output name=numfiles::$(${#FILES[@]})"
 
   test:
     runs-on: ubuntu-latest
