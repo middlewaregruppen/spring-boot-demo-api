@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: spring-boot-api
-          image: docker.io/crackitty/spring-boot-demo-api:1
+          image: ghcr.io/middlewaregruppen/spring-boot-demo-api:1
