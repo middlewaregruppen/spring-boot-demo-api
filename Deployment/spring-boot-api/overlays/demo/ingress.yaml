@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: spring-boot-demo.apps.mdlwr.com
+  - host: spring-boot-demo.apps.localdev.me
     http:
       paths:
       - backend:
