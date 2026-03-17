@@ -83,4 +83,33 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  
+
+    createPullRequest:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: main
+        run: |
+          cp Deployments/drive-in/overlays/dev/image-template.yaml Deployments/drive-in/overlays/dev/image.yaml
+          sed -i -e 's+latest+$app_version+g' Deployments/drive-in/overlays/dev/image.yaml
+          git add -A
+          git commit -m "Updating image reference in dev/image.yaml to use $app_version for ArgoCD"
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with: 
+          commit-message: Update report
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          delete-branch: true
+          labels: |
+            argo
+            dev env
+            automated pr
+
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
