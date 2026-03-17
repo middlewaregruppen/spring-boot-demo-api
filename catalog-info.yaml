@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: spring-boot-demo-api
+  description: Sample Spring Boot API in Java
+  annotations:
+    github.com/project-slug: github.com?owner=middlewaregruppen&repo=spring-boot-demo-api&organization=middlewaregruppen
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/the_people
