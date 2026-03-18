@@ -10,13 +10,13 @@ test purposes in CI/CD pipelines.
 ghcr.io/middlewaregruppen/spring-boot-demo-api:main
 
 # Latest Release
-ghcr.io/middlewaregruppen/spring-boot-demo-api:0.0.2
+ghcr.io/middlewaregruppen/spring-boot-demo-api:1.0.0
 ```
 
 Pull command:
 
 ```bash
-docker pull ghcr.io/middlewaregruppen/spring-boot-demo-api:0.0.2
+docker pull ghcr.io/middlewaregruppen/spring-boot-demo-api:1.0.0
 ```
 
 ## Requirements
