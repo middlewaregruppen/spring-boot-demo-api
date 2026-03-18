@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - "**"  # Build on all branches (including main)
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-build-deploy.yaml
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit  # Pass secrets to reusable workflow

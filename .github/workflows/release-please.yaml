@@ -1,0 +1,37 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release-created: ${{ steps.release.outputs.release_created }}
+      tag-name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
+    steps:
+      - uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38 # v4.4.0
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: maven
+
+  # Only run special release build when a release is actually created
+  build-and-deploy-release:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release-created }}
+    uses: ./.github/workflows/reusable-build-deploy.yaml
+    with:
+      tag-name: ${{ needs.release-please.outputs.tag-name }}
+      is-release: true
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit  # Pass secrets to reusable workflow
