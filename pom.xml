@@ -10,11 +10,12 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<name>spring-boot-api</name>
+	<description>Simple API using Spring Boot</description>
+
 	<groupId>se.middleware</groupId>
 	<artifactId>spring-boot-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>greeting</name>
-	<description>Simple API using Spring Boot</description>
+	<version>0.0.2</version>
 
 	<properties>
 		<java.version>17</java.version>
