@@ -32,7 +32,7 @@ jobs:
     - name: Get Maven app version
       id: maven_version
       run: |
-        echo "app_version=$(mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]')" >> $GITHUB_OUTPUT
+        echo "app_version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
 
     - name: Upload Binary linux-amd64
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2 - No longer maintained, we should think about using something else
