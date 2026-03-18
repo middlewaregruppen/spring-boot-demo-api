@@ -36,3 +36,4 @@ build/
 .azure/
 
 .github/java-upgrade/
+.java-version
