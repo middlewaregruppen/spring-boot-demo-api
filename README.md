@@ -1,17 +1,17 @@
 # Demo Spring Boot API
 
-Simple containerized spring boot API with test coverage that can be used for 
+Simple containerized spring boot API with test coverage that can be used for
 test purposes in CI/CD pipelines.
 
 ## Requirements
 
-- Java JDK 11
+- Java JDK 17
 - Maven 3.6.0
 - VSCode or other IDE
 
 ## Building the jar
 
-From the project root, after making sure you have Java 11 in the path
+From the project root, after making sure you have Java 17 in the path
 
 ```bash
 mvn clean package
@@ -45,26 +45,25 @@ Note: You will need to update this in deployment files also to reference the cor
 
 ## Using the demo
 
-This app exposes a simple `/greeting` endpoint under 
+This app exposes a simple `/greeting` endpoint under
 
 ```bash
 http://app.domain.com/greeting
 ```
 
-and 
+and
 
 ```bash
 http://app.domain.com/greeting?name=Charlie
 ```
 
-Calls to the endpoint increment a counter that can be monitored using prometheus. 
+Calls to the endpoint increment a counter that can be monitored using prometheus.
 
 ## Metrics
 
-Added a `@Timer` metric on the `greeting` method and also a custom `Counter` metric to 
+Added a `@Timer` metric on the `greeting` method and also a custom `Counter` metric to
 track the number of times the greeting is called.
 
 Metrics can be looked up via
 
 http://localhost:8080/actuator/prometheus
-
