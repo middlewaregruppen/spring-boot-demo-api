@@ -7,6 +7,12 @@ on:
   push:
     branches:
       - "**"  # Build on all branches (including main)
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".github/workflows/**"
+      - "catalog-info.yaml"
+      - "mkdocs.yml"
 
 permissions:
   contents: read
