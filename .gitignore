@@ -34,3 +34,5 @@ build/
 
 ### Azure ###
 .azure/
+
+.github/java-upgrade/
