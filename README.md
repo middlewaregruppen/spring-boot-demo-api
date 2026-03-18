@@ -3,6 +3,22 @@
 Simple containerized spring boot API with test coverage that can be used for
 test purposes in CI/CD pipelines.
 
+## 🐳 Latest Docker Image
+
+```bash
+# Latest from main branch
+ghcr.io/middlewaregruppen/spring-boot-demo-api:main
+
+# Latest Release
+ghcr.io/middlewaregruppen/spring-boot-demo-api:0.0.2
+```
+
+Pull command:
+
+```bash
+docker pull ghcr.io/middlewaregruppen/spring-boot-demo-api:0.0.2
+```
+
 ## Requirements
 
 - Java JDK 17
