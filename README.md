@@ -1,3 +1,7 @@
+[![CI](https://github.com/middlewaregruppen/spring-boot-demo-api/actions/workflows/ci.yaml/badge.svg)](https://github.com/middlewaregruppen/spring-boot-demo-api/actions/workflows/ci.yaml)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+[![Release Please](https://github.com/middlewaregruppen/spring-boot-demo-api/actions/workflows/release-please.yaml/badge.svg)](https://github.com/middlewaregruppen/spring-boot-demo-api/actions/workflows/release-please.yaml)
+
 # Demo Spring Boot API
 
 Simple containerized spring boot API with test coverage that can be used for
